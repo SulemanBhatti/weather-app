@@ -1,1 +1,0 @@
-export { getCurrentDate } from './getCurrentDate';
