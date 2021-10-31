@@ -2,3 +2,9 @@
     justify-content: end;
     display: flex;
 }
+
+button{
+    margin: 30px;
+}
+
+
