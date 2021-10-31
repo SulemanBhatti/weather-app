@@ -1,13 +1,27 @@
 import React from 'react';
-import { MainScreen } from './pages';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import { MainScreen, MapScreen } from './pages';
 
 import './App.css';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-     <MainScreen/>
+     <Switch>
+          <Route path="/city_map">
+            <MapScreen />
+          </Route>
+          <Route path="/">
+          <MainScreen/>
+          </Route>
+        </Switch>
     </div>
+    </Router>
   );
 }
 

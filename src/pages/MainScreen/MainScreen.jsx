@@ -1,6 +1,6 @@
 import React from 'react';
-import { WeatherCard } from '../../components';
-import { Header, InputDropdown } from '../../ui-components';
+import { WeatherCard, WeatherLineGraph } from '../../components';
+import { Header, InputDropdown, Button } from '../../ui-components';
 
 export const MainScreen = () =>{
     return (
@@ -8,10 +8,11 @@ export const MainScreen = () =>{
             <Header header={"Weather Forecast for Cities"}/>
             <InputDropdown/>
             <br/>
-            <br/>
             <WeatherCard/>
-            <p>Line graph for weather(next 1 week)</p>
-            <p>Button</p>
+            <br/>
+            <WeatherLineGraph/>
+            <br/>
+           <Button/>
         </>
     );
 }

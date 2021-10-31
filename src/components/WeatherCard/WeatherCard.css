@@ -38,7 +38,7 @@
     margin: 5px 5px;
 }
 
-.weatherstyle{
+.WeatherTempLayout{
     display: flex;
     justify-content: space-between;
 }
