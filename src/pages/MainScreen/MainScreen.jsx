@@ -12,7 +12,7 @@ export const MainScreen = () =>{
             <br/>
             <WeatherLineGraph/>
             <br/>
-           <Button/>
+           <Button link="/city_map" label="View city on map"/>
         </>
     );
 }
