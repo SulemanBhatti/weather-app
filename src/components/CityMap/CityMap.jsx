@@ -36,7 +36,7 @@ const CityMaps = (props) =>{
         <Marker
             coordinates={props.userLocation === "user" ? userCordinates : cityCordinates}
             anchor="bottom">
-            <img src='/images/mapbox-icon.png' className="marker"/>
+            <img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png" className="marker" type="image"/>
         </Marker>
         </Map>
         </div>

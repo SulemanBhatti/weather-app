@@ -7,6 +7,11 @@ export const MainScreen = ({cities}) =>{
     const [ selectedCity, setSelectedCity] = useState({});
     const [ weatherForecast, setWeatherForecast ] = useState([]);
 
+    useEffect(()=>{
+        // Set Initial State to Capital City of Pakistan, Islamabad
+        setSelectedCity({ latitude: 24.69904, longitude: 70.17982, value: 'Islamabad', label: 'Islamabad'})
+    },[]);
+
     useEffect(async()=>{
         const data = await getWeatherForecast(selectedCity);
         setWeatherForecast(data?.forecast?.forecastday);

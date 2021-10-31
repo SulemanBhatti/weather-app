@@ -11,7 +11,7 @@ export const cityData = (async () => {
     }
   }));
   const response = await fetch(
-    `https://parseapi.back4app.com/classes/Pakistancities_City?limit=150&order=country,name,location&keys=name,country,location&where=${where}`,
+    `https://parseapi.back4app.com/classes/Pakistancities_City?limit=439&order=country,name,location&keys=name,country,location&where=${where}`,
     {
       headers: {
         'X-Parse-Application-Id': 'KTx9m5W9R5WK1ZJtAlsHEKA8HG6CEd13Q4KUrdoU', // This is your app's application id
