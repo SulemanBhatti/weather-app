@@ -21,6 +21,7 @@ export const InputDropdown = ({cities, getCity}) => {
           className="select" 
           options={cities} 
           onChange={(e)=>onChangeHandler(e)}
+          placeholder="Islamabad"
           />
     </div>
     )
