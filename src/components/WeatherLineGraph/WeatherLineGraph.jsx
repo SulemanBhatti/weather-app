@@ -1,23 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Line} from 'react-chartjs-2';
 import './WeatherLineGraph.css';
 
-export const WeatherLineGraph = () => {
+export const WeatherLineGraph = ({weatherForecast}) => {
 
-    const [ state, setState ] = useState({ 
-        labels: ['January', 'February', 'March',
-           'April', 'May'],
-        datasets: [
-            {
-            label: 'Weekly Weather Forecast',
-            fill: false,
-            lineTension: 0.5,
-            backgroundColor: 'rgba(75,192,192,1)',
-            borderColor: 'rgba(0,0,0,1)',
-            borderWidth: 2,
-            data: [65, 59, 80, 81, 56]
-        }]
-    });
+    const [ state, setState ] = useState({
+      labels: ['1', '2', '3',
+    '4', '5'],
+    datasets: [
+     {
+     label: 'Weekly Weather Forecast',
+     fill: false,
+     lineTension: 0.5,
+     backgroundColor: 'rgba(75,192,192,1)',
+     borderColor: 'rgba(0,0,0,1)',
+     borderWidth: 2,
+     data: [0, 0, 0, 0, 0]
+    }]
+  });
+
+    useEffect(()=>{
+      const labels = weatherForecast?.map(i=>i.date);
+      const data = weatherForecast?.map(i=>i.day.avgtemp_c);
+      setState({
+      labels: labels,
+      datasets: [
+       {
+       label: 'Weekly Weather Forecast',
+       fill: false,
+       lineTension: 0.5,
+       backgroundColor: 'rgba(75,192,192,1)',
+       borderColor: 'rgba(0,0,0,1)',
+       borderWidth: 2,
+       data: data
+      }]
+    })
+      
+    },[weatherForecast]);
 
 
     return (

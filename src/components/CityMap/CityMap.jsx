@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
+import { withRouter } from "react-router";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './CityMap.css';
 
@@ -8,12 +9,9 @@ const Map = ReactMapboxGl({
       'pk.eyJ1Ijoic3VsZW1hbi1haG1hZCIsImEiOiJja3ZlNzNuaXY0OWk1MzFscGNvZXZvOWFnIn0.82aTe4nGysydbvetD4hQOw'
   });
 
-export const CityMap = (props) =>{
+const CityMaps = (props) =>{
     const [userCordinates, setUserCordinates] = useState([]);
-    const [cityCordinates, setCityCordinates] = useState({
-        lat: '',
-        long: ''
-    });
+    const [cityCordinates] =  useState([props.match.params.longitude, props.match.params.latitude]);
 
     useEffect(()=>{
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -21,8 +19,6 @@ export const CityMap = (props) =>{
         });
     },[]);
     
-    // setCityCordinates({lat: position.coords.latitude, long: position.coords.longitude});
-    console.log("DATA-1",userCordinates);
     return (
         <div className="CityMap">
         <Map
@@ -31,17 +27,19 @@ export const CityMap = (props) =>{
             height: '100vh',
             width: '100vw',
         }}
-        center = {props.location === "user" ? userCordinates : [72.984138, 33.738045]}
+        center = {props.userLocation === "user" ? userCordinates : cityCordinates}
         zoom = {[11]}
         >
         <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
         </Layer>
-        <Feature coordinates={props.location === "user" ? userCordinates : [72.984138, 33.738045]} />
+        <Feature coordinates={props.userLocation === "user" ? userCordinates : cityCordinates} />
         <Marker
-            coordinates={props.location === "user" ? userCordinates : [72.984138, 33.738045]}
+            coordinates={props.userLocation === "user" ? userCordinates : cityCordinates}
             anchor="bottom">
             <img src='/images/mapbox-icon.png' className="marker"/>
         </Marker>
         </Map>
         </div>
-    )}
+    )};
+
+    export const CityMap = withRouter(CityMaps);

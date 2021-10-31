@@ -12,7 +12,7 @@ export const MapScreen = () =>{
 
     return (
         <div className="MapScreen">
-            <CityMap location = {mapLocation}/>
+            <CityMap userLocation = {mapLocation}/>
             <Button onClick={()=>setUserLocation('user')} label="Where am I?"/>
         </div>
     );
